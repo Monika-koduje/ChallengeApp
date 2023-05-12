@@ -10,7 +10,7 @@ if (female && age > 30)
     }
     else
     {
-        Console.WriteLine(name + "," + " " + "lat" + " " + age);
+        Console.WriteLine(name + ", lat " + age);
     }
 }
 else if (!female)
