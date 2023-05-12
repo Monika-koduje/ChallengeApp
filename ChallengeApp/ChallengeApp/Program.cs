@@ -4,11 +4,25 @@ int age = 100;
 
 if (female && age > 30)
 {
-    Console.WriteLine(name + "," + " " + "lat" + " " + age);
+    if (name == "Ewa" && age == 33)
+    {
+        Console.WriteLine("Ewa, lat 33");
+    }
+    else
+    {
+        Console.WriteLine(name + "," + " " + "lat" + " " + age);
+    }
 }
-else if (!female && age < 18)
+else if (!female)
 {
-    Console.WriteLine("Niepełnoletni Mężczyzna");
+    if (age < 18)
+    {
+        Console.WriteLine("Niepełnoletni Mężczyzna");
+    }
+    else
+    {
+        Console.WriteLine("Pełnoletni Mężczyzna");
+    }
 }
 else
 {
