@@ -7,7 +7,7 @@ namespace ChallengeApp.Tests
         {
             var employee = new Employee("Monika", "A", 22);
 
-            employee.AddPoint(2,3,5,6,3);
+            employee.AddPoint(2);
 
             var viewPoints = employee.ViewPoints;
 
@@ -19,8 +19,8 @@ namespace ChallengeApp.Tests
         {
             var employee = new Employee("Monika", "A", 22);
 
-            employee.AddPoint(2, -3, 5, 6, -3);
-            employee.AddPoint(-2, 3, -5, -6, 3);
+            employee.AddPoint(2);
+            employee.AddPoint(-2);
 
 
             var viewPoints = employee.ViewPoints;
