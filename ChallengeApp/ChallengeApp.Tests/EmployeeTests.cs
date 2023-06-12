@@ -8,10 +8,11 @@ namespace ChallengeApp.Tests
             var employee = new Employee("Monika", "A", 22);
 
             employee.AddPoint(2);
+            employee.AddPoint(5);
 
             var viewPoints = employee.ViewPoints;
 
-            Assert.AreEqual(19, viewPoints);
+            Assert.AreEqual(7, viewPoints);
         }
 
         [Test]
