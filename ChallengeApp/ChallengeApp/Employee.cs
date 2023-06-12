@@ -2,7 +2,7 @@
 {
     public class Employee
     {
-        private List<int> points = new List<int>();
+        private List<float> points = new List<float>();
         public Employee(string name, string surname, int age)
         {
             this.Name = name;
@@ -14,7 +14,7 @@
         public string Surname { get; private set; }
         public int Age { get; private set; }
 
-        public int ViewPoints
+        public float ViewPoints
         {
             get
             {
@@ -22,12 +22,33 @@
             }
         }
 
-        public void AddPoint(int point1, int point2, int point3, int point4, int point5)
+        public void AddPoint(float point)
         {
-            this.points.Add(point1 + point2 + point3 + point4 + point5);
+            this.points.Add(point);
         }
 
+        public Statistics GetStatistics()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            foreach (var point in this.points)
+            {
+                statistics.Max = Math.Max(statistics.Max, point);
+                statistics.Min = Math.Min(statistics.Min, point);
+                statistics.Average += point;
+            }
+
+            statistics.Average /= this.points.Count;
+            return statistics;
+
+        }
+
+
     }
+      
 
 }
 
