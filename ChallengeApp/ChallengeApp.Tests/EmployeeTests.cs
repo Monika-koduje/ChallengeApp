@@ -29,6 +29,22 @@ namespace ChallengeApp.Tests
             Assert.AreEqual(0, viewPoints);
         }
 
+        [Test]
+        public void WhenEmployeeGetStatistics_ShouldViewTheirCorrectStatisctics()
+        {
+            var employee = new Employee("Monika", "A", 22);
+
+            employee.AddPoint(2);
+            employee.AddPoint(3);
+            employee.AddPoint(8);
+
+
+            var statistics = employee.GetStatistics();
+
+            Assert.AreEqual("4,33", $"{statistics.Average:N2}");
+            Assert.AreEqual(2, statistics.Min);
+            Assert.AreEqual(8, statistics.Max);
+        }
 
     }
 }
