@@ -9,4 +9,5 @@ namespace ChallengeApp
 
         public float Average { get; set; }
     }
+
 }

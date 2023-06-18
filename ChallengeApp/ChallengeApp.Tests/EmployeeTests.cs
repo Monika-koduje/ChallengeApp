@@ -45,6 +45,6 @@ namespace ChallengeApp.Tests
             Assert.AreEqual(2, statistics.Min);
             Assert.AreEqual(8, statistics.Max);
         }
-
     }
+    
 }
