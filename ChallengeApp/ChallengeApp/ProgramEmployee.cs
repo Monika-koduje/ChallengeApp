@@ -2,6 +2,8 @@
 
 Employee employee = new Employee("Monika", "A", 22);
 
+Console.WriteLine("Errors: (...)\n");
+
 employee.AddPoint(3.33);
 employee.AddPoint(3.3);
 employee.AddPoint(3.9223372036854775808);
@@ -23,7 +25,7 @@ float viewPoints = employee.ViewPoints;
 
 var statistics = employee.GetStatistics();
 
-Console.WriteLine($"{employee.Name}'s total points: {viewPoints:N2}");
+Console.WriteLine($"\n\n{employee.Name}'s total points: {viewPoints:N2}");
 Console.WriteLine($"Average: {statistics.Average:N2}");
 Console.WriteLine($"Min: {statistics.Min}");
 Console.WriteLine($"Max: " + $"{statistics.Max}");
