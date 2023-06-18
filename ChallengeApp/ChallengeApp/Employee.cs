@@ -125,6 +125,63 @@ namespace ChallengeApp
             statistics.Average /= this.points.Count;
             return statistics;
         }
+        public Statistics GetStatisticsWithFor()
+        {
+            var statistics2 = new Statistics();
+            statistics2.Average = 0;
+            statistics2.Max = float.MinValue;
+            statistics2.Min = float.MaxValue;
+
+            for (var index2 = 0; index2 < this.points.Count; index2++)
+            {
+                statistics2.Max = Math.Max(statistics2.Max, this.points[index2]);
+                statistics2.Min = Math.Min(statistics2.Min, this.points[index2]);
+                statistics2.Average += this.points[index2];
+            }
+
+            statistics2.Average /= this.points.Count;
+            return statistics2;
+        }
+        public Statistics GetStatisticsWithDoWhile()
+        {
+            var statistics3 = new Statistics();
+            statistics3.Average = 0;
+            statistics3.Max = float.MinValue;
+            statistics3.Min = float.MaxValue;
+
+            var index3 = 0;
+
+            do
+            {
+                statistics3.Max = Math.Max(statistics3.Max, this.points[index3]);
+                statistics3.Min = Math.Min(statistics3.Min, this.points[index3]);
+                statistics3.Average += this.points[index3];
+                index3++;
+            } while (index3 < this.points.Count);
+
+            statistics3.Average /= this.points.Count;
+            return statistics3;
+        }
+        public Statistics GetStatisticsWithWhile()
+        {
+            var statistics4 = new Statistics();
+            statistics4.Average = 0;
+            statistics4.Max = float.MinValue;
+            statistics4.Min = float.MaxValue;
+
+            var index4 = 0;
+
+            while (index4 < this.points.Count)
+            {
+                statistics4.Max = Math.Max(statistics4.Max, this.points[index4]);
+                statistics4.Min = Math.Min(statistics4.Min, this.points[index4]);
+                statistics4.Average += this.points[index4];
+                index4++;
+            }
+
+            statistics4.Average /= this.points.Count;
+            return statistics4;
+        }
     }
 
 }
