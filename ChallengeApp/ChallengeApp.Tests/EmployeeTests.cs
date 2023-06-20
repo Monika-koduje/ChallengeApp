@@ -26,7 +26,7 @@ namespace ChallengeApp.Tests
 
             var viewPoints = employee.ViewPoints;
 
-            Assert.AreEqual(0, viewPoints);
+            Assert.AreEqual(2, viewPoints);
         }
 
         [Test]
@@ -45,6 +45,21 @@ namespace ChallengeApp.Tests
             Assert.AreEqual(2, statistics.Min);
             Assert.AreEqual(8, statistics.Max);
         }
+
+        [Test]
+        public void WhenEmployeeGetRightPoints_ShouldViewTheirGradeLetter()
+        {
+            var employee = new Employee("Monika", "A", 22);
+
+            employee.AddPoint(20);
+            employee.AddPoint(36);
+            employee.AddPoint(84);
+
+
+            var statistics = employee.GetStatistics();
+
+            Assert.AreEqual('D', statistics.AverageLetter);
+        }
     }
-    
+
 }
