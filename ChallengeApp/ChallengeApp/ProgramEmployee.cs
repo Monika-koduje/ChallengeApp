@@ -1,5 +1,4 @@
 ﻿using ChallengeApp;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 string title = "program great employee";
 Console.WriteLine($"\n {title.ToUpper()}\n");
