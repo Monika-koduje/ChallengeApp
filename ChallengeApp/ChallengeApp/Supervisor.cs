@@ -1,10 +1,12 @@
-﻿namespace ChallengeApp
-{
-    public class Employee : IEmployee
-    {
-        private List<float> points = new List<float>();
+﻿using System.Security.Cryptography;
 
-        public Employee(string name, string surname, int age)
+namespace ChallengeApp
+{
+    public class Supervisor : IEmployee
+    {
+        private List<float> pointsSupervisor = new List<float>();
+
+        public Supervisor(string name, string surname, int age)
         {
             this.Name = name;
             this.Surname = surname;
@@ -18,7 +20,7 @@
         {
             get
             {
-                return this.points.Sum();
+                return this.pointsSupervisor.Sum();
             }
         }
 
@@ -26,7 +28,7 @@
         {
             if (point >= 0 && point <= 100)
             {
-                this.points.Add(point);
+                this.pointsSupervisor.Add(point);
             }
             else
             {
@@ -83,6 +85,7 @@
             var byteInFloatValue = (float)point;
             this.AddPoint(byteInFloatValue);
         }
+
         public void AddPoint(string point)
         {
             if (float.TryParse(point, out float stringOkValue))
@@ -91,41 +94,78 @@
             }
             else
             {
+                switch (point)
+                {
+                    case "6":
+                        this.pointsSupervisor.Add(100);
+                        break;
+                    case "-6":
+                    case "6-":
+                        this.pointsSupervisor.Add(95);
+                        break;
+                    case "+5":
+                    case "5+":
+                        this.pointsSupervisor.Add(85);
+                        break;
+                    case "5":
+                        this.pointsSupervisor.Add(80);
+                        break;
+                    case "-5":
+                    case "5-":
+                        this.pointsSupervisor.Add(75);
+                        break;
+                    case "+4":
+                    case "4+":
+                        this.pointsSupervisor.Add(65);
+                        break;
+                    case "4":
+                        this.pointsSupervisor.Add(60);
+                        break;
+                    case "-4":
+                    case "4-":
+                        this.pointsSupervisor.Add(55);
+                        break;
+                    case "+3":
+                    case "3+":
+                        this.pointsSupervisor.Add(45);
+                        break;
+                    case "3":
+                        this.pointsSupervisor.Add(40);
+                        break;
+                    case "-3":
+                    case "3-":
+                        this.pointsSupervisor.Add(35);
+                        break;
+                    case "2+":
+                    case "+2":
+                        this.pointsSupervisor.Add(25);
+                        break;
+                    case "2":
+                        this.pointsSupervisor.Add(20);
+                        break;
+                    case "-2":
+                    case "2-":
+                        this.pointsSupervisor.Add(15);
+                        break;
+                    case "+1":
+                    case "1+":
+                        this.pointsSupervisor.Add(5);
+                        break;
+                    case "1":
+                        this.pointsSupervisor.Add(0);
+                        break;
+                    default:
+                        throw new Exception("Invalid point value (wrong scope, acceptable from 1 to 6).");
+                }
+
                 throw new Exception("Invalid point value (string is NaN).");
             }
         }
         public void AddPoint(char point)
         {
-            switch (point)
-            {
-                case 'A':
-                case 'a':
-                    this.points.Add(100);
-                    break;
-                case 'B':
-                case 'b':
-                    this.points.Add(80);
-                    break;
-                case 'C':
-                case 'c':
-                    this.points.Add(60);
-                    break;
-                case 'D':
-                case 'd':
-                    this.points.Add(40);
-                    break;
-                case 'E':
-                case 'e':
-                    this.points.Add(20);
-                    break;
-                case 'F':
-                case 'f':
-                    this.points.Add(1);
-                    break;
-                default:
-                    throw new Exception("Invalid point value (char is NaN).");
-            }
+            throw new Exception("Invalid point value (char is NaN).");
         }
+
         public void AddPoint(bool point)
         {
             if (point == true || point == false)
@@ -141,14 +181,14 @@
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
 
-            foreach (var point in this.points)
+            foreach (var point in this.pointsSupervisor)
             {
                 statistics.Max = Math.Max(statistics.Max, point);
                 statistics.Min = Math.Min(statistics.Min, point);
                 statistics.Average += point;
             }
 
-            statistics.Average /= this.points.Count;
+            statistics.Average /= this.pointsSupervisor.Count;
 
             switch (statistics.Average)
             {
@@ -177,8 +217,4 @@
             return statistics;
         }
     }
-
 }
-
-
-
