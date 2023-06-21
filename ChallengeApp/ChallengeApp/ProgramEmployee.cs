@@ -245,7 +245,7 @@ Console.WriteLine($" Average: {statistics.Average:N2}");
 Console.WriteLine($" Letter grade: {statistics.AverageLetter}");
 
 Console.WriteLine($"\n\n Supervisor ({employeeSupervisor.Name} {employeeSupervisor.Surname} age: {employeeSupervisor.Age}) data sheet:");
-Console.WriteLine($"\n {employeeSupervisor.Name}'s total points: {viewPoints:N2}");
+Console.WriteLine($"\n {employeeSupervisor.Name}'s total points: {viewPointsSupervisor:N2}");
 Console.WriteLine($" Min: {statisticsSupervisor.Min}");
 Console.WriteLine($" Max: {statisticsSupervisor.Max}");
 Console.WriteLine($" Average: {statisticsSupervisor.Average:N2}");
