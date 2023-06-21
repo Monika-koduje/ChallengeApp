@@ -1,4 +1,5 @@
 ﻿using ChallengeApp;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 string title = "program great employee";
 Console.WriteLine($"\n {title.ToUpper()}\n");
@@ -7,72 +8,93 @@ Console.WriteLine("......................................\n");
 
 Console.WriteLine("\n Submit Employee information\n");
 
-string nameOk = " ";
+string nameOk;
 
 while (true)
 {
     Console.WriteLine(" Employee's name:");
     string name = Console.ReadLine();
 
-    if (int.TryParse(name, out int nameIsWrongInt) || float.TryParse(name, out float nameIsWrongFloat))
+    try
     {
-        Console.WriteLine("\nError: Invalid string value (wrong name)");
+        if (int.TryParse(name, out int nameIsWrongInt) || float.TryParse(name, out float nameIsWrongFloat))
+        {
+            throw new Exception("Invalid string value (wrong name)");
+        }
+        else if (string.IsNullOrEmpty(name))
+        {
+            throw new Exception("Invalid string value (name not given)");
+        }
+        else
+        {
+            nameOk = name;
+            break;
+        }
     }
-    else if (string.IsNullOrEmpty(name))
+    catch (Exception error)
     {
-        Console.WriteLine("\nError: Invalid string value (name not given)");
-    }
-    else
-    {
-        nameOk = name;
-        break;
+        Console.WriteLine($"\nException catched:\n{error.Message}\n");
     }
 }
 
-string surnameOk = " ";
+string surnameOk;
 
 while (true)
 {
     Console.WriteLine(" Employee's surname:");
     string surname = Console.ReadLine();
 
-    if (int.TryParse(surname, out int surnameIsWrongInt) || float.TryParse(surname, out float surnameIsWrongFloat))
+    try
     {
-        Console.WriteLine("\nError: Invalid string value (wrong surname)");
+        if (int.TryParse(surname, out int surnameIsWrongInt) || float.TryParse(surname, out float surnameIsWrongFloat))
+        {
+            throw new Exception("Invalid string value (wrong surname)");
+        }
+        else if (string.IsNullOrEmpty(surname))
+        {
+            throw new Exception("Invalid string value (surname not given)");
+        }
+        else
+        {
+            surnameOk = surname;
+            break;
+        }
     }
-    else if (string.IsNullOrEmpty(surname))
+    catch (Exception error)
     {
-        Console.WriteLine("\nError: Invalid string value (surname not given)");
-    }
-    else
-    {
-        surnameOk = surname;
-        break;
+        Console.WriteLine($"\nException catched:\n{error.Message}\n");
     }
 }
 
-int ageOk = 0;
+int ageOk;
 
 while (true)
 {
     Console.WriteLine(" Employee's age:");
     var age = Console.ReadLine();
 
-    if (int.TryParse(age, out int stringAgeOkValue))
+    try
     {
-        if (stringAgeOkValue >= 18 && stringAgeOkValue <= 150)
+        if (int.TryParse(age, out int stringAgeOkValue))
         {
-            ageOk = stringAgeOkValue;
-            break;
+            if (stringAgeOkValue >= 18 && stringAgeOkValue <= 150)
+            {
+                ageOk = stringAgeOkValue;
+                break;
+            }
+            else
+            {
+                throw new Exception("Invalid age value (wrong scope)");
+            }
         }
         else
         {
-            Console.WriteLine("\nErorr: Invalid age value (wrong scope)");
+            throw new Exception("Invalid age value (string is NaN).");
         }
     }
-    else
+    catch (Exception error)
     {
-        Console.WriteLine("\nError: Invalid age value (string is NaN).");
+        Console.WriteLine($"\nException catched:\n{error.Message}\n");
     }
 }
 
@@ -87,7 +109,15 @@ while (true)
     {
         break;
     }
-    employee.AddPoint(pointEmployee);
+
+    try
+    {
+        employee.AddPoint(pointEmployee);
+    }
+    catch (Exception error)
+    {
+        Console.WriteLine($"\nException catched:\n{error.Message}\n");
+    }
 }
 
 float viewPoints = employee.ViewPoints;

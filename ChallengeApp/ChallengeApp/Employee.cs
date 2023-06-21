@@ -29,7 +29,7 @@
             }
             else
             {
-                Console.WriteLine("Invalid point value (wrong scope).");
+                throw new Exception("Invalid point value (wrong scope).");
             }
         }
         public void AddPoint(double point)
@@ -90,7 +90,7 @@
             }
             else
             {
-                Console.WriteLine("Invalid point value (string is NaN).");
+                throw new Exception("Invalid point value (string is NaN).");
             }
         }
         public void AddPoint(char point)
@@ -122,15 +122,14 @@
                     this.points.Add(1);
                     break;
                 default:
-                    Console.WriteLine("Invalid point value (char is NaN).");
-                    break;
+                    throw new Exception("Invalid point value (char is NaN).");
             }
         }
         public void AddPoint(bool point)
         {
             if (point == true || point == false)
             {
-                Console.WriteLine("Invalid point value (bool is NaN).");
+                throw new Exception("Invalid point value (bool is NaN).");
             }
         }
 
@@ -171,8 +170,7 @@
                     statistics.AverageLetter = 'F';
                     break;
                 default:
-                    Console.WriteLine("Not enough points");
-                    break;
+                    throw new Exception("Not enough points");
             }
 
             return statistics;
