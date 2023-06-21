@@ -214,16 +214,16 @@ while (true)
 while (true)
 {
     Console.WriteLine(" Supervisor's point: (press q and enter to quit)");
-    var pointSpervisor = Console.ReadLine();
+    var pointSupervisor = Console.ReadLine();
 
-    if (pointSpervisor == "q")
+    if (pointSupervisor == "q")
     {
         break;
     }
 
     try
     {
-        employeeSupervisor.AddPoint(pointSpervisor);
+        employeeSupervisor.AddPoint(pointSupervisor);
     }
     catch (Exception error)
     {
