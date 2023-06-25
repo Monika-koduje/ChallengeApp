@@ -91,40 +91,40 @@
             }
             else
             {
-                throw new Exception("Invalid point value (string is NaN).");
+                switch (point)
+                {
+                    case "A":
+                    case "a":
+                        this.points.Add(100);
+                        break;
+                    case "B":
+                    case "b":
+                        this.points.Add(80);
+                        break;
+                    case "C":
+                    case "c":
+                        this.points.Add(60);
+                        break;
+                    case "D":
+                    case "d":
+                        this.points.Add(40);
+                        break;
+                    case "E":
+                    case "e":
+                        this.points.Add(20);
+                        break;
+                    case "F":
+                    case "f":
+                        this.points.Add(1);
+                        break;
+                    default:
+                        throw new Exception("Invalid point value (string is NaN or wrong letter, acceptable from A to F or from a to f).");
+                }
             }
         }
         public void AddPoint(char point)
         {
-            switch (point)
-            {
-                case 'A':
-                case 'a':
-                    this.points.Add(100);
-                    break;
-                case 'B':
-                case 'b':
-                    this.points.Add(80);
-                    break;
-                case 'C':
-                case 'c':
-                    this.points.Add(60);
-                    break;
-                case 'D':
-                case 'd':
-                    this.points.Add(40);
-                    break;
-                case 'E':
-                case 'e':
-                    this.points.Add(20);
-                    break;
-                case 'F':
-                case 'f':
-                    this.points.Add(1);
-                    break;
-                default:
-                    throw new Exception("Invalid point value (char is NaN).");
-            }
+            throw new Exception("Invalid point value (char is NaN).");
         }
         public void AddPoint(bool point)
         {

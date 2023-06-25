@@ -155,10 +155,8 @@ namespace ChallengeApp
                         this.pointsSupervisor.Add(0);
                         break;
                     default:
-                        throw new Exception("Invalid point value (wrong scope, acceptable from 1 to 6).");
+                        throw new Exception("Invalid point value (string is NaN or wrong scope, acceptable from 1 to 6).");
                 }
-
-                throw new Exception("Invalid point value (string is NaN).");
             }
         }
         public void AddPoint(char point)
